@@ -12,7 +12,9 @@ const rateLimiter = rateLimit({
 
 
 const app = express();
-app.use('/howold', rateLimiter, HowOldRoute);
+// Apply the rate limiting middleware to all requests
+app.use(rateLimiter);
+app.use('/howold', HowOldRoute);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
