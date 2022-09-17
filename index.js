@@ -5,7 +5,7 @@ const HowOldRoute = require('./howold.route');
 
 const rateLimiter = rateLimit({
   windowMs: 1000,
-  max: 2,
+  max: 3,
   message: 'You have reached maximum request',
   statusCode: 429
 });
