@@ -20,7 +20,7 @@ router.get('', async (req, res, next) => {
     const dateOfBirth = new Date(dob);
     // make sure dob is a valid date string
     if (!(dateOfBirth instanceof Date && !isNaN(dateOfBirth))) {
-      return res.status(429).json({
+      return res.status(422).json({
         message: '"dob" parameter value is invalid',
         error: true
       })
