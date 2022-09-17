@@ -4,8 +4,8 @@ require('dotenv').config();
 const HowOldRoute = require('./howold.route');
 
 const rateLimiter = rateLimit({
-  windowMs: 212,
-  max: 3,
+  windowMs: 1000,
+  max: 2,
   message: 'You have reached maximum request',
   statusCode: 429
 });
