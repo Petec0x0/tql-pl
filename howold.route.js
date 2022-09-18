@@ -6,9 +6,9 @@ router.get('', async (req, res, next) => {
   const dob = req.query.dob;
   // make sure dob paramenter exists
   if (!dob) {
-    return res.status(400).json({
-      message: '"dob" parameter is not properly used',
-      error: true
+    return res.status(200).json({
+      age: null,
+      success: false
     })
   }
 
@@ -20,9 +20,9 @@ router.get('', async (req, res, next) => {
     const dateOfBirth = new Date(dob);
     // make sure dob is a valid date string
     if (!(dateOfBirth instanceof Date && !isNaN(dateOfBirth))) {
-      return res.status(422).json({
-        message: '"dob" parameter value is invalid',
-        error: true
+      return res.status(200).json({
+        age: null,
+        success: false
       })
     }
 
@@ -32,9 +32,9 @@ router.get('', async (req, res, next) => {
       age--;
     }
 
-    return res.json({
+    return res.status(200).json({
       age: age,
-      error: false
+      success: true
     })
 
   } catch (err) {
